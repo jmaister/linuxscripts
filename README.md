@@ -5,6 +5,11 @@
 
 # Security
 
+## Hostname
+
+    sudo hostname NEW_HOSTNAME
+    sudo hostnamectl set-hostname NEW_HOSTNAME
+
 ## Avoid root ssh connection, Manual step
 
     $ sudo nano /etc/ssh/sshd_config
