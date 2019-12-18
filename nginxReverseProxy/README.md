@@ -5,19 +5,20 @@
 
 Ensure NGINX is running and and enabled to start automatically on reboot:
 
-sudo systemctl start nginx
-sudo systemctl enable nginx
+    sudo systemctl start nginx
+    sudo systemctl enable nginx
 
 # Config
 
 /etc/nginx/nginx.conf should have "include /etc/nginx/conf.d/*.conf;"
 
-Copy *.conf to /etc/nginx/conf.d/
+Copy config:
+
+    sudo cp *.conf /etc/nginx/sites-enabled/
 
 Restart: sudo systemctl restart nginx
 Check: sudo systemctl status nginx.service
-
-logs: sudo tail -f /var/log/nginx/access.log
+Logs: sudo tail -f /var/log/nginx/access.log
 
 # From
 
