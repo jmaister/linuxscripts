@@ -15,6 +15,9 @@ sudo systemctl enable nginx
 Copy *.conf to /etc/nginx/conf.d/
 
 Restart: sudo systemctl restart nginx
+Check: sudo systemctl status nginx.service
+
+logs: sudo tail -f /var/log/nginx/access.log
 
 # From
 
