@@ -18,6 +18,14 @@ sudo apt -y install gradle
 
 # Git
 sudo apt -y install git
+git config --global user.name "Jordi Burgos"
+git config --global user.email jordiburgos@gmail.com
+
+# NodeJS: https://github.com/nodesource/distributions/blob/master/README.md
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+sudo apt-get install -y nodejs
+sudo apt-get install gcc g++ make
+
 
 # ssh key
 ssh-keygen -t rsa -b 4096 -C "jordiburgos@gmail.com"
