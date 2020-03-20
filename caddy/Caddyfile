@@ -1,0 +1,51 @@
+{
+    email jordiburgos@gmail.com
+    # Uncomment for debug
+    #acme_ca https://acme-staging-v02.api.letsencrypt.org/directory
+    debug
+}
+
+(webconf) {
+  encode gzip
+}
+
+(theheaders) {
+    #transport http
+
+        header_up X-Forwarded-Ssl on
+        header_up Host {host}
+        header_up X-Real-IP {remote}
+        header_up X-Forwarded-For {remote}
+        header_up X-Forwarded-Port {server_port}
+        header_up X-Forwarded-Proto {scheme}
+        header_up X-Url-Scheme {scheme}
+        header_up X-Forwarded-Host {host}
+}
+
+paellalabs.com, www.paellalabs.com {
+    root * /var/www/paellalabs.com/
+    file_server
+    import webconf
+}
+
+jenkins.paellalabs.com {
+    reverse_proxy http://127.0.0.1:9080 {
+      import theheaders
+    }
+    import webconf
+}
+
+warehouse.paellalabs.com {
+    reverse_proxy http://127.0.0.1:9081 {
+      import theheaders
+    }
+    import webconf
+}
+
+magic.paellalabs.com {
+    reverse_proxy http://127.0.0.1:5000 {
+     import theheaders
+    }
+    import webconf
+}
+
