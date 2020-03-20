@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  notebook:
+    image: jupyter/scipy-notebook
+    container_name: jupyter
+    restart: always
+    ports:
+      - "8888:8888"
+    volumes:
+      #- /home/jordi/workspace/jupyter:/home/jovyan/work
+      - /home/jordi/workspace/jupyter/home:/home/jovyan
+

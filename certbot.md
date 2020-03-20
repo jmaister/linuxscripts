@@ -2,7 +2,7 @@
 
 # Create certs for nginx
 
-    sudo certbot --nginx -d paellalabs.com -d jenkins.paellalabs.com -d warehouse.paellalabs.com
+    sudo certbot --nginx -d paellalabs.com -d jenkins.paellalabs.com -d warehouse.paellalabs.com -d magic.paellalabs.com
 
 # Renew
 
