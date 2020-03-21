@@ -49,3 +49,11 @@ magic.paellalabs.com {
     import webconf
 }
 
+
+nextcloud.paellalabs.com {
+    reverse_proxy http://127.0.0.1:60080 {
+     import theheaders
+    }
+    import webconf
+}
+
