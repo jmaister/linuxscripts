@@ -57,3 +57,10 @@ nextcloud.paellalabs.com {
     import webconf
 }
 
+
+chat.paellalabs.com {
+    reverse_proxy http://127.0.0.1:3000 {
+     import theheaders
+    }
+    import webconf
+}
