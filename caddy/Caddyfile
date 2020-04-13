@@ -2,13 +2,15 @@
     email jordiburgos@gmail.com
     # Uncomment for debug
     #acme_ca https://acme-staging-v02.api.letsencrypt.org/directory
-    debug
+    #debug
 }
 
+# Add gzip compression to requests
 (webconf) {
   encode gzip
 }
 
+# Add forward headers to requests
 (theheaders) {
     header_up X-Forwarded-Ssl on
     header_up Host {host}
