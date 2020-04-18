@@ -10,8 +10,6 @@
 }
 
 (theheaders) {
-    #transport http
-
         header_up X-Forwarded-Ssl on
         header_up Host {host}
         header_up X-Real-IP {remote}
@@ -50,17 +48,24 @@ magic.paellalabs.com {
 }
 
 
-nextcloud.paellalabs.com {
-    reverse_proxy http://127.0.0.1:60080 {
-     #import theheaders
-    }
-    import webconf
-}
+#nextcloud.paellalabs.com {
+#    reverse_proxy http://127.0.0.1:60080 {
+#     #import theheaders
+#    }
+#    import webconf
+#}
 
 
 chat.paellalabs.com {
     reverse_proxy http://127.0.0.1:3000 {
      import theheaders
     }
+    import webconf
+}
+
+
+fc.paellalabs.com {
+    root * /home/jordi/projects/fc/
+    file_server
     import webconf
 }
