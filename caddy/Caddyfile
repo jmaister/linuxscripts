@@ -2,17 +2,14 @@
     email jordiburgos@gmail.com
     # Uncomment for debug
     #acme_ca https://acme-staging-v02.api.letsencrypt.org/directory
-    #debug
+    debug
 }
 
-# Add gzip compression to requests
 (webconf) {
   encode gzip
 }
 
-# Add forward headers to requests
 (theheaders) {
-<<<<<<< HEAD
         header_up X-Forwarded-Ssl on
         header_up Host {host}
         header_up X-Real-IP {remote}
@@ -21,16 +18,6 @@
         header_up X-Forwarded-Proto {scheme}
         header_up X-Url-Scheme {scheme}
         header_up X-Forwarded-Host {host}
-=======
-    header_up X-Forwarded-Ssl on
-    header_up Host {host}
-    header_up X-Real-IP {remote}
-    header_up X-Forwarded-For {remote}
-    header_up X-Forwarded-Port {server_port}
-    header_up X-Forwarded-Proto {scheme}
-    header_up X-Url-Scheme {scheme}
-    header_up X-Forwarded-Host {host}
->>>>>>> 19523ea4b1ce31316d2697fa73757ff40f034dd8
 }
 
 paellalabs.com, www.paellalabs.com {
@@ -78,7 +65,8 @@ chat.paellalabs.com {
 
 
 fc.paellalabs.com {
-    root * /home/jordi/projects/fc/
-    file_server
+    reverse_proxy http://127.0.0.1:3300 {
+     import theheaders
+    }
     import webconf
 }
