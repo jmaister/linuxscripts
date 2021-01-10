@@ -1,5 +1,5 @@
 
-$NEW_USER=jordi
+NEW_USER=jordi
 
 sudo adduser $NEW_USER
 usermod -aG sudo $NEW_USER
