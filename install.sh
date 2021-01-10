@@ -5,6 +5,10 @@ sudo apt -y update && sudo apt -y upgrade
 sudo apt -y install docker.io
 sudo apt -y install docker-compose
 
+# Utils
+sudo apt -y install nmap htop
+
+
 # Java JDK
 sudo apt -y install openjdk-11-jdk
 echo "export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/" >> ~/.bashrc
