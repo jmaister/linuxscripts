@@ -1,0 +1,23 @@
+version: '3'
+ 
+services:
+  db:
+    image: mysql:8.0.22
+    container_name: db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: my_secret_password
+      MYSQL_DATABASE: app_db
+      MYSQL_USER: db_user
+      MYSQL_PASSWORD: db_user_pass
+    #ports:
+    #  - "6033:3306"
+    volumes:
+      - dbdata:/home/jordi/data/mysql
+  adminer:
+    image: adminer:4.7.7
+    restart: always
+    ports:
+      - 8089:8080
+volumes:
+  dbdata:
