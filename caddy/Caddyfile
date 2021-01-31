@@ -70,3 +70,18 @@ fc.paellalabs.com {
     }
     import webconf
 }
+
+furgos.paellalabs.com {
+    reverse_proxy http://172.105.248.126:45080 {
+     import theheaders
+    }
+    import webconf
+}
+
+furgostest.paellalabs.com {
+    reverse_proxy http://172.105.248.126:3000 {
+     import theheaders
+    }
+    import webconf
+}
+
